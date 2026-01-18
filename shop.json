@@ -1,0 +1,16 @@
+{
+  "assets": [
+    {
+      "id": "1768685574222",
+      "nombre": "Tarjetas",
+      "precio": 200,
+      "descripcion": "Tarjetas Para Darle Un Mejor Estilo A Tu Juego"
+    },
+    {
+      "id": "1768686080564",
+      "nombre": "Pantalla De Carga",
+      "precio": 700,
+      "descripcion": "Pantalla De Carga Con Video O Imagen"
+    }
+  ]
+}
