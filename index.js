@@ -14,17 +14,23 @@ const client = new Client({
 
 client.commands = new Collection();
 
-const commandFiles = fs.readdirSync("./commands").filter(f => f.endsWith(".js"));
+const commandsPath = "./Commands"; // <-- AQUI cambia a Commands
 
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
+if (!fs.existsSync(commandsPath)) {
+  console.log("⚠️ No se encontró la carpeta Commands. No se cargaron comandos.");
+} else {
+  const commandFiles = fs.readdirSync(commandsPath).filter(f => f.endsWith(".js"));
 
-  if (!command.data || !command.execute) {
-    console.log(`⚠️ Comando inválido: ${file}`);
-    continue;
+  for (const file of commandFiles) {
+    const command = require(`${commandsPath}/${file}`);
+
+    if (!command.data || !command.execute) {
+      console.log(`⚠️ Comando inválido: ${file}`);
+      continue;
+    }
+
+    client.commands.set(command.data.name, command);
   }
-
-  client.commands.set(command.data.name, command);
 }
 
 client.once("ready", () => {
