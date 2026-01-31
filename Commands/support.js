@@ -43,6 +43,9 @@ module.exports = {
 
         await member.roles.add(selected);
 
+        member.send(`Se te ha otorgado soporte.\nCanal de soporte: ${interaction.channel}`)
+            .catch(() => {});
+
         await interaction.reply({
             content: 'Soporte será brindado lo más antes posible.',
             ephemeral: true
