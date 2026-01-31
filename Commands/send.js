@@ -24,7 +24,7 @@ module.exports = {
       "## 💜 **Entrega Oficial – Sánchez Shop**\n\n" +
       "Gracias por confiar en nuestro trabajo. Tu compra ha sido procesada correctamente y procedemos a entregarte tu archivo digital.\n\n" +
       "📦 **Detalles de la entrega:**\n" +
-      "• Estado: **Entregado correctamente  +
+      "• Estado: **Entregado correctamente**\n\n" +
       "En **Sánchez Shop** trabajamos con seriedad, calidad y compromiso. Cada entrega es revisada manualmente para garantizar que recibas exactamente lo que pagaste.\n\n" +
       "Si necesitas soporte, ajustes, actualizaciones o tienes alguna duda, puedes abrir un ticket en cualquier momento. Nuestro equipo estará disponible para ayudarte.\n\n" +
       "💎 *Gracias por elegir calidad. Gracias por elegir Sánchez Shop.*";
