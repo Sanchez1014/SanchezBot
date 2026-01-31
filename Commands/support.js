@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const supportDB = require('../database/support.json');
+const supportVC = require('../database/supportVC.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -43,8 +44,23 @@ module.exports = {
 
         await member.roles.add(selected);
 
-        member.send(`Se te ha otorgado soporte.\nCanal de soporte: ${interaction.channel}`)
-            .catch(() => {});
+        let assignedVC;
+
+        if (selected.id === supportDB.role1) assignedVC = supportVC.vc1;
+        if (selected.id === supportDB.role2) assignedVC = supportVC.vc2;
+        if (selected.id === supportDB.role3) assignedVC = supportVC.vc3;
+
+        const vcChannel = interaction.guild.channels.cache.get(assignedVC);
+
+        if (vcChannel) {
+            member.send(
+                `Se te ha otorgado soporte.\nCanal de voz asignado: ${vcChannel.name}`
+            ).catch(() => {});
+        } else {
+            member.send(
+                `Se te ha otorgado soporte.\nNo se encontró un canal de voz asignado.`
+            ).catch(() => {});
+        }
 
         await interaction.reply({
             content: 'Soporte será brindado lo más antes posible.',
