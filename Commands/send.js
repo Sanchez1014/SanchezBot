@@ -14,35 +14,21 @@ module.exports = {
         .setDescription("Archivo del asset")
         .setRequired(true)
     )
-    .addStringOption(opt =>
-      opt.setName("modelo")
-        .setDescription("Nombre del modelo o producto")
-        .setRequired(true)
-    )
-    .addStringOption(opt =>
-      opt.setName("tipo")
-        .setDescription("Tipo de producto (Asset, Tool, Modelo, etc.)")
-        .setRequired(true)
-    )
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
   async execute(interaction) {
     const user = interaction.options.getUser("usuario");
     const file = interaction.options.getAttachment("archivo");
-    const modelo = interaction.options.getString("modelo");
-    const tipo = interaction.options.getString("tipo");
 
     const content =
-      "## 💜 **Entrega de Modelo – Sánchez Shop**\n\n" +
-      "**Gracias por tu compra.**\n" +
-      "Tu modelo ya está listo y te lo entregamos a continuación.\n\n" +
-      "📦 **Detalles del Producto:**\n" +
-      `• Modelo: **${modelo}**\n` +
-      `• Tipo: **${tipo}**\n` +
+      "## 💜 **Entrega Oficial – Sánchez Shop**\n\n" +
+      "Gracias por confiar en nuestro trabajo. Tu compra ha sido procesada correctamente y procedemos a entregarte tu archivo digital.\n\n" +
+      "📦 **Detalles de la entrega:**\n" +
+      "• Producto adquirido: **Asset digital premium**\n" +
       "• Estado: **Entregado correctamente <a:Purple_Verification:1457777295694495764>**\n\n" +
-      "Si necesitas soporte, modificaciones o tienes alguna duda, puedes abrir un ticket en cualquier momento.\n" +
-      "Agradecemos tu confianza en **Sánchez Shop**.\n\n" +
-      "💎 *Calidad, seriedad y compromiso.*";
+      "En **Sánchez Shop** trabajamos con seriedad, calidad y compromiso. Cada entrega es revisada manualmente para garantizar que recibas exactamente lo que pagaste.\n\n" +
+      "Si necesitas soporte, ajustes, actualizaciones o tienes alguna duda, puedes abrir un ticket en cualquier momento. Nuestro equipo estará disponible para ayudarte.\n\n" +
+      "💎 *Gracias por elegir calidad. Gracias por elegir Sánchez Shop.*";
 
     try {
       await user.send({
@@ -51,7 +37,7 @@ module.exports = {
       });
 
       await interaction.reply({
-        content: `✅ Asset enviado a **${user.tag}** (${modelo})`,
+        content: `✅ Asset enviado correctamente a **${user.tag}**`,
         ephemeral: true
       });
     } catch (err) {
