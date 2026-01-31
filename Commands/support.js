@@ -53,8 +53,9 @@ module.exports = {
         const vcChannel = interaction.guild.channels.cache.get(assignedVC);
 
         if (vcChannel) {
+            const link = `https://discord.com/channels/${interaction.guild.id}/${vcChannel.id}`;
             member.send(
-                `Se te ha otorgado soporte.\nCanal de soporte: 🛍️ Sanchez Shop › #${vcChannel.name}`
+                `Se te ha otorgado soporte.\nCanal de soporte:\n${link}`
             ).catch(() => {});
         } else {
             member.send(
