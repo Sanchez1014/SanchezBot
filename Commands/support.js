@@ -54,7 +54,7 @@ module.exports = {
 
         if (vcChannel) {
             member.send(
-                `Se te ha otorgado soporte.\nCanal de voz asignado: ${vcChannel.name}`
+                `Se te ha otorgado soporte.\nCanal de soporte: 🛍️ Sanchez Shop › #${vcChannel.name}`
             ).catch(() => {});
         } else {
             member.send(
